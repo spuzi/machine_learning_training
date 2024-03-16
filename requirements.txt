@@ -6,3 +6,4 @@ matplotlib
 jupyterlab
 mlflow
 setuptools 
+black
