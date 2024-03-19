@@ -65,7 +65,7 @@ y = df_rental["rental_length_days"]
 # avoiding any features that leak data about the target variable, and include 20%
 # of the total data in the test set.
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=RANDOM_STATE_VALUE, random_state=RANDOM_STATE_VALUE
+    X, y, test_size=TEST_SIZE_VALUE, random_state=RANDOM_STATE_VALUE
 )
 
 # Selection of important features for the model by using lasso
@@ -76,10 +76,19 @@ X_test = X_test[relevant_features]
 # Now, we'll try several models, to find the best one
 
 # Linear Regression model
-linear_regression_result = ols_linear_regression(X_train, y_train)
+linear_regression_result = ols_linear_regression(
+    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
+)
 
 # Random Forest Regression model
-random_forest_regression_result = random_forest_regression(X_train, y_train)
+random_forest_regression_result = random_forest_regression(
+    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
+)
+
+# Decision Tree Regressor
+decision_tree_regressor_result = decision_tree_regressor(
+    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
+)
 
 
 print("end")

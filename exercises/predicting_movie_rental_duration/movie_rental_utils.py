@@ -3,6 +3,7 @@ import numpy as np
 import os
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import RandomizedSearchCV
@@ -98,33 +99,46 @@ def select_relevant_features(X, y):
     return list(relevant_features)
 
 
-def ols_linear_regression(X_train, y_train):
+def ols_linear_regression(X_train, y_train, X_test, y_test):
     """
     Train a linear regression model
     """
 
+    # Creation of the model
     linear_regression = LinearRegression()
+
+    # Training of the model
     linear_regression.fit(X_train, y_train)
+
+    # Score with train set
     linear_regression_score = linear_regression.score(X_train, y_train)
-    y_pred = linear_regression.predict(X_train)
-    mse = mean_squared_error(y_train, y_pred)
+
+    # Score with test set
+    linear_regression_score_with_test_set = linear_regression.score(
+        X_test, y_test
+    )
+
+    # Predict with the test set
+    y_pred = linear_regression.predict(X_test)
+
+    # Calculate the metric with the test set
+    mse = mean_squared_error(y_test, y_pred)
 
     return {
         "model_name": "Linear Regression",
         "model": linear_regression,
-        "score": linear_regression_score,
         "mse": mse,
     }
 
 
-def random_forest_regression(X_train, y_train):
+def random_forest_regression(X_train, y_train, X_test, y_test):
     """
     Train a random forest regression model
     """
     # Lets perform a random search to find the best parameters
     param_grid = {
-        "n_estimators": np.arrange(1, 101, 1),
-        "max_depth": np.arrange(1, 11, 1),
+        "n_estimators": np.arange(1, 101, 1),
+        "max_depth": np.arange(1, 11, 1),
     }
 
     random_search = RandomizedSearchCV(
@@ -144,13 +158,47 @@ def random_forest_regression(X_train, y_train):
         random_state=RANDOM_STATE_VALUE,
     )
     rf.fit(X_train, y_train)
+
+    # Score with the train set
     random_forest_score = rf.score(X_train, y_train)
-    y_pred = rf.predict(X_train)
-    mse = mean_squared_error(y_train, y_pred)
+
+    # Score with the test set
+    random_forest_score_with_test_set = rf.score(X_test, y_test)
+
+    # Predict with the test set
+    y_pred = rf.predict(X_test)
+
+    # Calculate the metric with the test set
+    mse = mean_squared_error(y_test, y_pred)
 
     return {
         "model_name": "Random Forest Regression",
         "model": rf,
-        "score": random_forest_score,
+        "mse": mse,
+    }
+
+
+def decision_tree_regressor(X_train, y_train, X_test, y_test):
+
+    # Create the model
+    decision_tree_regressor = DecisionTreeRegressor()
+
+    # Train the model
+    decision_tree_regressor.fit(X_train, y_train)
+
+    # Calculate the score with the train set
+    score_with_train_set = decision_tree_regressor.score(X_train, y_train)
+    # Calculate the score with the test set
+    score_with_test_set = decision_tree_regressor.score(X_test, y_test)
+
+    # Predict with the test set
+    y_pred = decision_tree_regressor.predict(X_test)
+
+    # Calculate the metric with the test set
+    mse = mean_squared_error(y_pred, y_test)
+
+    return {
+        "model_name": "Decision Tree Regressor",
+        "model": decision_tree_regressor,
         "mse": mse,
     }
