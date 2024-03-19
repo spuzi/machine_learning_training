@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import RandomizedSearchCV
+from xgboost import XGBRegressor
 
 RANDOM_STATE_VALUE = 9
 TEST_SIZE_VALUE = 0.2
@@ -200,5 +201,33 @@ def decision_tree_regressor(X_train, y_train, X_test, y_test):
     return {
         "model_name": "Decision Tree Regressor",
         "model": decision_tree_regressor,
+        "mse": mse,
+    }
+
+
+def xgb_regresoor(
+    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
+):
+
+    # Create the model
+    xgb = XGBRegressor()
+
+    # Train the model
+    xgb.fit(X_train, y_train)
+
+    # Calculate the score with the train set
+    score_with_train_set = xgb.score(X_train, y_train)
+    # Calculate the score with the test set
+    score_with_test_set = xgb.score(X_test, y_test)
+
+    # Predict with the test set
+    y_pred = xgb.predict(X_test)
+
+    # Calculate the metric with the test set
+    mse = mean_squared_error(y_pred, y_test)
+
+    return {
+        "model_name": "XGB Regressor",
+        "model": xgb,
         "mse": mse,
     }
