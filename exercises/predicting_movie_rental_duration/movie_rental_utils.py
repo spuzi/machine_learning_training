@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import GridSearchCV
 from xgboost import XGBRegressor
 
 RANDOM_STATE_VALUE = 9
@@ -205,9 +206,7 @@ def decision_tree_regressor(X_train, y_train, X_test, y_test):
     }
 
 
-def xgb_regresoor(
-    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
-):
+def xgb_regresoor(X_train, y_train, X_test, y_test):
 
     # Create the model
     xgb = XGBRegressor()

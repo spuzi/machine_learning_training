@@ -73,22 +73,62 @@ relevant_features = select_relevant_features(X_train, y_train)
 X_train = X_train[relevant_features]
 X_test = X_test[relevant_features]
 
-# Now, we'll try several models, to find the best one
+# Now, we'll try several models, to find the best one. We'll add the results
+# of each model to a dictionary, so we can compare the models later.
+model_results_dict = {}
+
+
+def add_model_results(model_name, model_result):
+    model_results_dict[model_name] = model_result
+
 
 # Linear Regression model
 linear_regression_result = ols_linear_regression(
     X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
 )
 
+add_model_results("Linear Regression", linear_regression_result)
+
 # Random Forest Regression model
 random_forest_regression_result = random_forest_regression(
     X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
 )
+
+add_model_results("Random Forest Regression", random_forest_regression_result)
 
 # Decision Tree Regressor
 decision_tree_regressor_result = decision_tree_regressor(
     X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
 )
 
+add_model_results("Decision Tree Regressor", decision_tree_regressor_result)
+
+
+xgb_regressor_result = xgb_regresoor(
+    X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
+)
+
+add_model_results("XGB Regressor", xgb_regressor_result)
+
+
+def get_best_model():
+    min_model = None
+    for _, model_data in model_results_dict.items():
+        metric_name = "mse"
+        metric_obtained = model_data[metric_name]
+
+        # Set the min model as the first model compared
+        if min_model is None:
+            min_model = model_data
+
+        # Check if this model has a lower metric than the min model
+        if metric_obtained < min_model[metric_name]:
+            min_model = model_data
+
+    # Return the model with the min metric
+    return min_model
+
+
+best_model = get_best_model()
 
 print("end")
