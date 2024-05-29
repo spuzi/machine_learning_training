@@ -68,7 +68,7 @@ So, **what happens if we vary this threshold?**
 We can use a **Reciever Operating Characteristic (ROC) to visualize how
 different thresholds affect true positive and false positive rates.**
 
-![[Pasted image 20231030080454.png]]
+![Chance model](./imgs/graph_with_dotted_line.png)
 
 Here the **dotted line represents a chance model. which randomly guesses labels.** 
 
@@ -76,20 +76,21 @@ When the threshold is equal 0, the model predict '1' for all observations,
 meaning it will correctly predict all positive values, and incorrectly predict all 
 negative values. 
 
-![[Pasted image 20231030080837.png]]
+![Chance model](./imgs/p_equal_to_zero.png)
 
 If the threshold is equal to 1, the model predicts 0 for all observations, 
-which means that both true and false positive rates are zero. 
-![[Pasted image 20231030081540.png]]
+which means that both true and false positive rates are zero.
+
+![Chance model](./imgs/p_equal_to_one.png)
 
 **If we vary the threshold, we get a series of different false positive and 
 true positive rates.** 
 
-![[Pasted image 20231030081619.png]]
+![Chance model](./imgs/vary_threshold.png)
 
 A line plot of the threshold helps to visualize the trend
 
-![[Pasted image 20231030082142.png]]
+![Chance model](./imgs/plot_vary_threshold.png)
 
 ```python
 from sklearn.metrics import roc_curve
@@ -111,25 +112,27 @@ plt.show()
 ```
 
 This code could produce a figure such as this:
-![[Pasted image 20231101084043.png]]
 
-This looks great, but how do we quantify the model's performance based 
-on this plot?
+![Chance model](./imgs/roc_curve.png)
 
-If we have a model with 1 for true positive rate and zero for false positive
-rate, this would be the perfect model.
+This looks great, but **how do we quantify the model's performance based 
+on this plot?**
+
+**If we have a model with 1 for true positive rate and zero for false positive
+rate, this would be the perfect model**.
 
 Perfect model:
 	- 1 for True Positive Rate
 	- 0 for False Positive Rate
 
-Therefore, we calculate the area under the ROC, a metric known as AUC (Area Under the Curve).
+Therefore, we **calculate the area under the ROC, a metric known as AUC (Area Under the Curve**.
 
 Scores range from 0 to 1, with 1 being ideal.
 
-I the following example the model scores p=0.67, which is only 34% ((67-50) x 2) better than a model making random guesses:
+In the following example the model scores p=0.67, which is only 34% ((67-50) x 2) better than a model making random guesses:
 
-![[Pasted image 20231101085821.png]]
+
+![AUC curve](./imgs/auc_curve.png)
 
 ## AUC code example
 

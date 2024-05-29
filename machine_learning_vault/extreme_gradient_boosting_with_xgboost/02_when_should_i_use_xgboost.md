@@ -3,7 +3,7 @@
 
 - Consider using XGBoost for any supervised machine learning task that fits the following criteria:
 	- Large number of training examples. 
-		- At least few feature and at least 1_000 examples
+		- At least few feature and at least 1000 examples
 		- In general, as long as the number of features in your training set is smaller than the number of examples you have, you should be fine. 
 	- XGBoost tends to do well when you have mixture of categorical and numerical features, or when you have just numeric features.
 
