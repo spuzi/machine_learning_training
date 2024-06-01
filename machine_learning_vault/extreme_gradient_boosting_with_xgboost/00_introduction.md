@@ -165,5 +165,33 @@ print("accuracy :%f" % (accuracy))
 # accuracy: 0.78
 ```
 
+https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=6
+### What is a decision tree?
+Because XGBoost is usually used with trees as base learners, we need to 
+understand what an individual decision tree is, and how it works.
+
+Here is one example of a decision tree
+```sequence
+
+Road Tested?
+  |- No => Don't buy
+  |- Si => 
+    |
+    |- Mileage?
+        |- Low => Buy 
+        |- High => 
+            | -Age?
+                | - old => Don't Buy
+                | - recent => Buy
+```
+
+As you can see, it has a single question that is being asked at each decision
+node, and only 2 possible choices, at the very bottom of each decision tree, 
+there is a single possible decision.
+
+In this example decision tree for whether to purchase a vehicle, the first 
+question you ask is whether it has been road-tested, if it hasn't you immediately
+decide not to buy, otherwise, you continue asking questions, such as what the
+vehicle's mileage is, and, it its age is old or recent.
 
 
