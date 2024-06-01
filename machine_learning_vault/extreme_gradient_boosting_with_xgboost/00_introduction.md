@@ -194,4 +194,32 @@ question you ask is whether it has been road-tested, if it hasn't you immediatel
 decide not to buy, otherwise, you continue asking questions, such as what the
 vehicle's mileage is, and, it its age is old or recent.
 
+At bottom, every possible decision will eventually lead to a choice, some 
+taking many fewer questions to get those choices than others.
 
+The concept of a base learner will be covered more extensively later, but for 
+now, just think of any individual learning algorithm in a ensemble algorithm 
+as a base learner. This is important because XGBoost itself is an ensemble
+learning method and it uses the outputs of many models for a final decision.
+
+Anyways, as you saw in the previous slide, decision tree is a learning method 
+that involves a tree-like graph to model either a continuous or categorical 
+choice given some data.
+
+It's composed of a series of binary decisions (yes/no or true/false) that when
+answered in succession ultimately yield a prediction about the data at hand
+(these predictions happen at the leaves of the tree).
+
+Decision trees are constructed iteratively (that is, one binary decision 
+at a time) util some stopping criterion is met (the depth of the tree
+reaches some pre-defined maximum value, for example).
+
+During construction, the tree is built one split at a time, and the way that
+a split is selected (that is, what feature to split on and where in the 
+feature's range of values to split) can vary, but involves choosing a split 
+point that segregates the target values better (put each target category 
+into buckets that are increasingly dominated by just one category) until all
+or (nearly all) values within a given split are exclusively of one category
+or another.
+
+https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=6
