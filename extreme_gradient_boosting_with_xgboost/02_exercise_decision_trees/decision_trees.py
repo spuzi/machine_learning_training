@@ -1,10 +1,12 @@
 """
 Decision trees
-Your task in this exercise is to make a simple decision tree using scikit-learn's DecisionTreeClassifier
-on the breast cancer dataset that comes preloaded with scikit-learn.
+--------------
+Your task in this exercise is to make a simple decision tree using 
+scikit-learn's DecisionTreeClassifier on the breast cancer dataset that comes 
+preloaded with scikit-learn.
 
-This dataset contains numeric measurements of various dimensions of individual tumors
-(such as perimeter and texture) from breast biopsies and a single outcome
+This dataset contains numeric measurements of various dimensions of individual 
+tumors (such as perimeter and texture) from breast biopsies and a single outcome
 value (the tumor is either malignant, or benign).
 
 To do:
@@ -12,9 +14,9 @@ To do:
     - Create training and test sets such that 20%
       of the data is used for testing. Use a random_state of 123.
 
-- Train a Decision tree classifier. You'll specify a
-parameter called max_depth. Many other parameters can be modified within
-this model, and you can check all of them out here.
+- Train a Decision tree classifier. You'll specify a parameter called max_depth. 
+Many other parameters can be modified within this model, and you can check all 
+of them out here.
     - max_depth of 4. This parameter specifies the maximum
       number of successive split points you can have before reaching
       a leaf node.

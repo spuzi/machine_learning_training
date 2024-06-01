@@ -217,9 +217,23 @@ reaches some pre-defined maximum value, for example).
 During construction, the tree is built one split at a time, and the way that
 a split is selected (that is, what feature to split on and where in the 
 feature's range of values to split) can vary, but involves choosing a split 
-point that segregates the target values better (put each target category 
+point that segregates the target values better (that is, put each target category 
 into buckets that are increasingly dominated by just one category) until all
 or (nearly all) values within a given split are exclusively of one category
 or another.
 
-https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=6
+Using this process, each leaf of the decision tree will have category in the majority, or should exclusively of one category.
+
+Individual decision trees in general are low-bias, high-variance learning models.
+
+![high_variance_low_bias](Pasted%20image%2020240601143451.png)
+
+That is, they are very good at learning relationships within any data you train them on, but they tend to overfit the data you use to train them on and usually generalize to new data poorly.
+
+XGBoost uses a slightly different kind of a decision tree, called a classification and regression tree called "CART".
+
+Whereas for the decision trees described above, the leaf nodes always contain decision values, CART trees contain a real-valued scored in each leaf, regardless of whether they are used for classification for regression.
+
+The real values scores can then be thresholded to convert into categories for classification problems if necessary.
+
+
