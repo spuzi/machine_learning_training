@@ -237,3 +237,43 @@ Whereas for the decision trees described above, the leaf nodes always contain de
 The real values scores can then be thresholded to convert into categories for classification problems if necessary.
 
 
+### Exercise
+[Decision Tree Model example](../../extreme_gradient_boosting_with_xgboost/02_exercise_decision_trees/decision_trees.py)
+
+
+https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=8
+## What is Boosting?
+Now that we've reviewed both supervised learning and the basics of decision trees, 
+lets talk about the core concept that gives XGBoost its state-of-the-art 
+performance, boosting.
+
+At bottom, boosting isn't really a specific machine learning algorithm, but a 
+concept that can be applied to a set of machine learning models.
+
+So, it's really a meta-algorithm. Specifically, it is an ensamble meta-algorithm 
+primarily used to reduce any given single learner's variance and to convert 
+many weak learners into an arbitrarily strong learner.
+
+A weak learner is any machine learning algorithm that is just slightly better 
+than chance.
+
+So, a decision tree that can predict some outcome slightly more frequently than
+pure randomness would be considered a weak learner.
+
+The principal insight that allows XGBoost to work is the fact that you can use
+boosting to convert a collection of weak learners into a strong learner.
+
+Where a strong learner is any algorithm that can be tuned to achieve arbitrarily 
+good performance for some supervised learning problem.
+
+### How is this accomplished?
+By iteratively learning a set of weak models on subsets of the data you have at 
+hand, and weighting each of their predictions according to each weak leaner's
+performance.
+
+You then combine all of the weak learner's predictions multiplied by their 
+weights to obtain a single final weighted prediction that is much better than
+any of the individual predictions themselves.
+
+I'ts kind of incredible that this works as well as it does.
+
