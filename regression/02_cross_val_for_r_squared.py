@@ -1,12 +1,14 @@
 """
 Cross-validation for R-squared
 ------------------------------
-Cross-validation is a vital approach to evaluating a model. It maximizes the amount of data
-that is available to the model, as the model is not only trained but also tested on all the available data.
+Cross-validation is a vital approach to evaluating a model. It maximizes the 
+amount of data that is available to the model, as the model is not only trained 
+but also tested on all the available data.
 
-In this exercise, you will build a linear regression model, then use 6-fold cross-validation to
-assess its accuracy for predicting sales using social media advertising expenditure. You will display
-the individual score for each of the six-folds.
+In this exercise, you will build a linear regression model, then use 6-fold 
+cross-validation to assess its accuracy for predicting sales using social media 
+advertising expenditure. You will display the individual score for each of the 
+six-folds.
 
 To do:
 - Predict the sales using the investing in radio and social media.
@@ -19,7 +21,8 @@ from sklearn.model_selection import KFold, cross_val_score
 import pandas as pd
 import numpy as np
 
-sales_df = pd.read_csv("./advertising_and_sales_clean.csv")
+
+sales_df = pd.read_csv("regression\\advertising_and_sales_clean.csv")
 
 # Selection of features and target variables
 features = ['radio', 'social_media']

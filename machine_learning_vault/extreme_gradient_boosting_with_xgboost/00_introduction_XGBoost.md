@@ -277,3 +277,55 @@ any of the individual predictions themselves.
 
 I'ts kind of incredible that this works as well as it does.
 
+Here is a very basic example of boosting using 2 decision trees:
+
+![](Pasted%20image%2020240603055101.png)
+
+This example comes from the XGBoost documentation and shows that given a specific 
+example, each tree gives a different prediction score depending on the data it sees. The 
+prediction scores for each possibility are summed across trees, and the prediction is 
+simply the sum of the scores across both trees.
+
+Here, you can see that whatever it was we were trying to predict, the little boy had a higher 
+predicted score summed across both trees than the old man.
+
+Since we will be working with XGBoost's learning API for model evaluation, next, it's a good idea to briefly provide you with an example that shows how model evaluation using cross-validation works with XGBoost's learning API (which is different from the scikit learn compatible API) as it has its own cross-validation capabilities baked in.
+
+As a refresher, cross-validation is a robust method for estimating the expected performance of a machine learning model on unseen data by generating many non-overlapping train/test on your training data and reporting the average test set 
+performance across all data splits.
+
+[Measuring how good is your model](../supervised_learning_with_scikit-learn/03_Cross_Validation/03_Cross_Validation.md)
+
+### Cross Validation Example for XGBoost
+
+```python 
+
+import xgboost as xgb
+import pandas as pd
+
+churn_data = pd.read_csv("classification_data.csv")
+
+# Convert our dataset into an optimized data structure that the creators
+# of XGBoost made that gives the package its lauded performance and effiency 
+# gains called "DMatrix".
+# In the previous exercise, the input datasets were converted into DMatrix data
+# on the fly but when we use the XGBoost's Cross-Validation object, which is
+# part of XGBoost's learning api we have to first explicitly convert our data 
+# into a DMatrix.
+churn_dmatrix = xgb.DMatrix(
+                    data = churn_data.iloc[:, :-1],
+                    label = churn_data.month_5_still_here
+                )
+
+# Creating a parameter dictionary to pass into our cross-validation. This is 
+# necessary because the Cross Validation method has no idea what kind of 
+# XGBoost model we are using and expects us to provide that information in 
+# a dictionary of appropiate key-value pairs.
+params = {
+    "objective": "binary:logistic", 
+    "max_depth": 4
+}
+
+
+
+```

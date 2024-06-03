@@ -63,5 +63,5 @@ print(np.quantile(cv_results), [0.025, 0.975])
 ```
 
 ## Exercise 
+[Example of cross validation and R-squared](../../../regression/02_cross_val_for_r_squared.py)
 
-[Example of cross validation and R-squared](https://github.com/franciscosanchezoliver/machine_learning_training/blob/main/regression/02_cross_val_for_r_squared.py)
