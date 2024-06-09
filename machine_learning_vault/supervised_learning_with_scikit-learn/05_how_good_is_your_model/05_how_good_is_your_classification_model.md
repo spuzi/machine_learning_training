@@ -1,8 +1,8 @@
-
+#accuracy #precision #recall #confusion_matrix #classification
 # How good is your classification model?
 
 
-We've used accuracy in classificatino problems to measure the fraction 
+We've used accuracy in classification problems to measure the fraction 
 of correctly classified labels. 
 
 $$accuracy = \frac {correct\ predictions} {total\ observation} $$

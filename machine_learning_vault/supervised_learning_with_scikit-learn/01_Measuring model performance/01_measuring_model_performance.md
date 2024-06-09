@@ -1,3 +1,4 @@
+#accuracy #split_train_test #model_complexity #model_complexity_curve
 # Index
 
 - Measuring model performance
@@ -79,7 +80,6 @@ In contrast, __complex models can be sensitive to noise in the training data, ra
 than reflecting general trends, this is known as overfitting.__
 
 <h2 id="model_complexity_curve">Model complexity curve</h2>
-
 Se can also interpret K using a model complexity curve, with a KNN model, we can calculate 
 accuracy on the training and test sets using incremental K values, and plot the results.
 
@@ -132,9 +132,5 @@ The peak test accuracy actually occurs at around 13 neighbors.
 
 ## Exercises 
 
-1. [Calculate the score with the test set](https://github.com/franciscosanchezoliver/machine_learning_training/blob/main/knn/01_knn_train_test_accuracy_comparison.py)
-2. [Model Complexity Curve](https://github.com/franciscosanchezoliver/machine_learning_training/blob/main/knn/02_knn_overfitting_underfitting.py)
-
-
-
-
+1. [Using KNeighbors for classification](../../../knn/01_knn_train_test_accuracy_comparison.py)
+2. [Model Complexity Curve](../../../knn/02_knn_overfitting_underfitting.py)

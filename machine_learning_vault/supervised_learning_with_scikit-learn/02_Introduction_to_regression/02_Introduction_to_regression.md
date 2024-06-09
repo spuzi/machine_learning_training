@@ -1,3 +1,4 @@
+#regression #linear_regression #rss #ols #r2 #mse #rmse 
 # Index
 - Introduction to Regression
 - Fitting a regression model
@@ -200,5 +201,4 @@ of around 24 (mg/dl).
 
 
 ## Exercise 
-
-[Example of linear regression and calculate the RMSE](https://github.com/franciscosanchezoliver/machine_learning_training/blob/main/regression/01_multiple_linear_regression.py)
+[Example of linear regression and calculate the RMSE](../../../regression/01_multiple_linear_regression.py)

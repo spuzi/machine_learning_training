@@ -1,4 +1,4 @@
-
+#xgboost #decision_tree #boosting 
 
 ## Introduction XGB
 https://campus.datacamp.com/courses/extreme-gradient-boosting-with-xgboost/classification-with-xgboost?ex=1
@@ -45,7 +45,7 @@ to evaluate the quality of a model
 
 $$ accuracy = \frac{t_p + t_n}{t_p + t_n + f_p + f_n}$$
 
-[Measuring how good is your model](../supervised_learning_with_scikit-learn/05_how_good_is_your_model/05_how_good_is_your_model.md)
+[Measuring how good is your model](../supervised_learning_with_scikit-learn/05_how_good_is_your_model/05_how_good_is_your_classification_model.md)
 
 Some common algorithms for classification problems include logistic regression
 and decision trees.
@@ -84,7 +84,7 @@ Given below are 4 potential machine learning problems you might encounter in the
 - [ ] Given a large dataset of user behaviors on a website, generating an informative segmentation of the users based on their behaviors.
     - There's nothing to predict here, this is an unsupervised (clustering) problem.
 
-- [X] Predicting whether a given user will click on an ad given the ad content and metadata associated with the user.
+-  [X] Predicting whether a given user will click on an ad given the ad content and metadata associated with the user.
 
 - [ ] Given a user's past behavior on a video platform, presenting him/her with a series of recommended videos to watch next.
     - Incorrect. This problem involves ranking entities and returning the highest ranked ones (in order) to the user.
@@ -96,7 +96,7 @@ Which of these is a binary classification problem?<br>
 Great! A classification problem involves predicting the category a given data point belongs to out of a finite set of possible categories. Depending on how many possible categories there are to predict, a classification problem can be either binary or multi-class. Let's do another quick refresher here. Your job is to pick the binary classification problem out of the following list of supervised learning problems.
 
 
-- [X] Predicting whether a given image contains a cat.
+-  [X] Predicting whether a given image contains a cat.
 - [ ] Predicting the emotional valence of a sentence (Valence can be positive, negative, or neutral).
     - There are 3 categories to choose from here. Try again.
 - [ ] Recommending the most tax-efficient strategy for tax filing in an automated accounting system.
@@ -289,10 +289,16 @@ simply the sum of the scores across both trees.
 Here, you can see that whatever it was we were trying to predict, the little boy had a higher 
 predicted score summed across both trees than the old man.
 
-Since we will be working with XGBoost's learning API for model evaluation, next, it's a good idea to briefly provide you with an example that shows how model evaluation using cross-validation works with XGBoost's learning API (which is different from the scikit learn compatible API) as it has its own cross-validation capabilities baked in.
+Since we will be working with XGBoost's learning API for model evaluation, next,
+it's a good idea to briefly provide you with an example that shows how model 
+evaluation using cross-validation works with XGBoost's learning API (which is 
+different from the scikit learn compatible API) as it has its own cross-validation 
+capabilities baked in.
 
-As a refresher, cross-validation is a robust method for estimating the expected performance of a machine learning model on unseen data by generating many non-overlapping train/test on your training data and reporting the average test set 
-performance across all data splits.
+As a refresher, cross-validation is a robust method for estimating the expected 
+performance of a machine learning model on unseen data by generating many 
+non-overlapping train/test on your training data and reporting the average test 
+set performance across all data splits.
 
 [Measuring how good is your model](../supervised_learning_with_scikit-learn/03_Cross_Validation/03_Cross_Validation.md)
 
@@ -319,13 +325,30 @@ churn_dmatrix = xgb.DMatrix(
 
 # Creating a parameter dictionary to pass into our cross-validation. This is 
 # necessary because the Cross Validation method has no idea what kind of 
-# XGBoost model we are using and expects us to provide that information in 
+# XGBoost model we are using and expects us to provide that information as 
 # a dictionary of appropiate key-value pairs.
+# In our parameter dictionary we are only providing the objective function
+# we would like to use and the maximum depth that every tree can grow to.
 params = {
     "objective": "binary:logistic", 
     "max_depth": 4
 }
 
-
-
+# Here we are calling the cross validation function, passing our DMatrix object
+# storing all of our data, the parameter dictionary, the number of cross-validation
+# folds, how many trees we want to build, what metric we want to compute, and
+# wheter we want our output to be stored as a pandas dataframe.
+cv_results = xgb.cv(
+    dtrain=churn_matrix, 
+    params=params,
+    nfold=4,
+    num_boost_round=10,
+    metrics="error",
+    as_pandas=True
+)
+# Convert our metrics into an accuracy and print the result
+print("Accuracy: %f" % ((1-cv_results["test-error-mean"]).iloc[-1])
 ```
+
+### Exercise
+[Mesauring how good your model with XGBoost](../../extreme_gradient_boosting_with_xgboost/03_measuring_accuracy/xgb_measuring_accuracy.py)

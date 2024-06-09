@@ -1,5 +1,4 @@
 """
-
 - Use all variables as features
 - Divide the data into a train and a test set. The size of the test
   set should be the 20% of the data.
@@ -11,8 +10,10 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import os
 
-churn_data = pd.read_csv('churn_data_modified.csv')
+
+churn_data = pd.read_csv(os.getcwd() + "\\knn\\churn_data_modified.csv")
 
 # The features will be all the variables.
 X = churn_data.drop('churn', axis=1).values

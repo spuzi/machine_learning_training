@@ -26,11 +26,9 @@ import numpy as np
 import xgboost as xgb
 import pandas as pd
 import os
-
+from sklearn.model_selection import train_test_split
 
 pd.set_option("display.max_columns", None)
-
-from sklearn.model_selection import train_test_split
 
 churn_data = pd.read_csv(
     os.getcwd()
@@ -60,7 +58,6 @@ xgb_classifier.fit(X_train, y_train)
 predictions = xgb_classifier.predict(X_test)
 
 # Compute the accuracy
-# accuracy =
 predictions_correct = np.sum(predictions == y_test)
 test_set_size = y_test.shape[0]
 accuracy = predictions_correct / test_set_size
@@ -70,6 +67,5 @@ print(f"Accuracy: {accuracy}")
 print(
     f"""
     Our model has an accuracy of {accuracy * 100}%.
-    In the following exercies we'll learn how to tune our Extreme Gradient Boosting models.
     """
 )
