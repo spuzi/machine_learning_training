@@ -8,3 +8,4 @@ todo
 **/mlruns
 *.db
 .vscode/
+.obsidian/

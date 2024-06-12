@@ -20,7 +20,6 @@ To do:
     - num_boost_round is the number of trees we want to build (5)
     - metrics is the metric you want to compute (this will be "error", which we 
     will convert to an accuracy).
-
 """
 
 import pandas as pd

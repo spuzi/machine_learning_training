@@ -1,3 +1,4 @@
+#logistic_regression #roc #classification #auc 
 ## Logistic Regression
 
 Despite his name, **logistic regression is used for classification**. 
@@ -144,6 +145,3 @@ print(roc_auc_score(y_test, y_pred_probs))
 
 # As expected, we get a score of 0.67
 ```
-
-
-https://campus.datacamp.com/courses/supervised-learning-with-scikit-learn/fine-tuning-your-model-3?ex=4
