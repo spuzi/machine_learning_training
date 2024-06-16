@@ -131,3 +131,6 @@ full_prompt = prompt_template.format_message(
 llm(full_prompt)
 ```
 
+[Code Example](./01_chain_example.py)
+
+[Code Example 02](./02_prompt_template_and_chaining.py)

@@ -68,6 +68,8 @@ output = llm.invoke(question)
 print(output)
 ```
 
+[Simple Example](./00_simple_example.py)
+
 
 From Hugging Face, we're using the Falcon 7b parameter instruction-optimized model. We'll define an unfinished sentence predict, and use both models to predict the next words.
 
