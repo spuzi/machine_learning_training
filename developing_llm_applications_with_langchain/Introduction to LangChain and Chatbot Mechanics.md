@@ -70,9 +70,24 @@ print(output)
 
 [Simple Example with HuggingFace](./00_simple_example_huggingface.py)
 
+```python
+import os
+from langchain_openai import OpenAI
+
+openai_apikey = os.environ["openai_apikey"]
+llm = OpenAI(
+    model_name="gpt-3.5-turbo-instruct", openai_api_key=openai_apikey
+)
+# Predict the words following the text in question
+question = 'Whatever you do, take care of your shoes'
+output = llm.invoke(question)
+print(output)
+
+# One of the simplest ways to maintain the quality and appearance of your shoes is to take care of them regularly. Here are some tips to help you do just that:
+# 1. Clean them regularly:  ...
+```
 
 [Simple Example with OpenAi]()
-
 
 From Hugging Face, we're using the Falcon 7b parameter instruction-optimized model. We'll define an unfinished sentence predict, and use both models to predict the next words.
 

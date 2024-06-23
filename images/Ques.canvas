@@ -7,7 +7,7 @@
 		{"id":"924cbd6d423165f7","type":"file","file":"images/memory.png","x":-3,"y":220,"width":180,"height":180},
 		{"id":"c29f531849eddc87","type":"text","text":"Prompt","x":300,"y":160,"width":120,"height":60},
 		{"id":"14fd010049e634eb","type":"text","text":"LLM","x":500,"y":160,"width":100,"height":60},
-		{"id":"3b7d1d96bbaa835c","x":680,"y":160,"width":120,"height":60,"type":"text","text":"Answer"}
+		{"id":"3b7d1d96bbaa835c","type":"text","text":"Answer","x":680,"y":160,"width":120,"height":60}
 	],
 	"edges":[
 		{"id":"a99564fb5a8d6f28","fromNode":"880e0966f4dc2810","fromSide":"right","toNode":"ecbd0a5323c12b34","toSide":"left"},
