@@ -108,4 +108,4 @@ Example:
 - Natural language to code generation.
 - Virtual code assistant for learning to code.
 
-https://customer-academy.databricks.com/learn/course/1765/play/12490/llm-applications;lp=275
+
