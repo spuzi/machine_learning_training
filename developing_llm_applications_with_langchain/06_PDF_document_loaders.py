@@ -19,7 +19,6 @@ Instructions
 import os
 from langchain_community.document_loaders import PyPDFLoader
 
-# Create a document loader for attention_is_all_you_need.pdf
 pdf_file_path = os.path.join(os.getcwd(), "data", "attention_is_all_you_need.pdf")
 loader = PyPDFLoader(
     file_path=pdf_file_path 

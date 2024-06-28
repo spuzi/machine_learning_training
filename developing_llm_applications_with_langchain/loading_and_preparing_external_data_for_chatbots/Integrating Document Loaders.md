@@ -63,4 +63,9 @@ print(data[1]) # Document Metadata
 #  'title': 'Nrsc5': Receive NRSC-5 digital}
 ```
 
+[Reading a PDF example](../06_PDF_document_loaders.py)
+
+
+
+
 

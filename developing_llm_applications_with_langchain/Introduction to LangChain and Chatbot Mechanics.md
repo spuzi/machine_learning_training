@@ -87,7 +87,7 @@ print(output)
 # 1. Clean them regularly:  ...
 ```
 
-[Simple Example with OpenAi]()
+[Simple Example with OpenAi](./00_simple_example_openai.py)
 
 From Hugging Face, we're using the Falcon 7b parameter instruction-optimized model. We'll define an unfinished sentence predict, and use both models to predict the next words.
 
