@@ -24,6 +24,8 @@ csv_file_path = os.path.join(os.getcwd(), "data", "fifa_countries_audience.csv")
 loader = CSVLoader(file_path=csv_file_path)
 
 # Load the document
+# CSVLoader creates a document for each row in the CSV file, which could be 
+# used in an LLM application to summarize data and generate reports.
 data = loader.load()
 print(data[0])
 

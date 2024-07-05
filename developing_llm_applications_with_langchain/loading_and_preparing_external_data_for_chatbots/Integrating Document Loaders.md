@@ -37,8 +37,9 @@ print(data[0])
 #          hereby grants permission to reproduce the tables and figures
 #          in this paper solely for use in ...
 # )
-
 ```
+
+[Reading a PDF example](../06_PDF_document_loaders.py)
 
 When loading CSVs, the syntax is very similar, but instead we use CSVLoader class.
 
@@ -63,7 +64,7 @@ print(data[1]) # Document Metadata
 #  'title': 'Nrsc5': Receive NRSC-5 digital}
 ```
 
-[Reading a PDF example](../06_PDF_document_loaders.py)
+[Reading Hacker news with Third party loader](../06_third_party_document_loaders.py)
 
 
 
