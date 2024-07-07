@@ -73,3 +73,12 @@ We can see that executing the agent resulted in a series of messages.
 - The third  is the result of the tool call.
 - The final message is the model's response after observing the tool's answer, which it decided to round to two decimal places.
 
+### Exercise: What's an agent?
+Which are the following statements about agents are correct?
+
+Select all correct answers:
+-  [x] Agents use language models to make decisions
+-  [ ] Agents store external data for retrieval
+-  [x] Agents use tools to interact with the system in different ways
+-  [ ] Agents are used to create reusable and customizable prompts
+
