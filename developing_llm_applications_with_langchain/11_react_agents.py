@@ -67,6 +67,21 @@ print(response["messages"][-1].content)
         # ]
 # }
 
+    # Here are some key facts about London, England:
+    # 
+    # 1. London is the capital and largest city of England and the United Kingdom.
+    # 2. It is located on the River Thames in southeastern England.
+    # 3. London is a leading global city in the arts, commerce, education, entertainment, fashion, finance, healthcare, media, professional services, research and development, tourism, and transportation.
+    # 4. The city is known for its iconic landmarks such as the Tower of London, Buckingham Palace, the London Eye, and Big Ben.
+    # 5. London is a diverse and multicultural city, with a rich history dating back to Roman times.
+    # 6. The city is home to numerous museums, galleries, theaters, and cultural institutions.
+    # 7. London is a major financial center and is home to the London Stock Exchange.
+    # 8. The city hosted the Summer Olympics in 1908, 1948, and 2012.
+    # 9. London has a temperate maritime climate with mild winters and cool summers.
+    # 10. The city has a well-developed public transportation system, including the famous London Underground (the Tube).
+    # 
+    # These are just a few highlights about London, a vibrant and historic city with a lot to offer.
+
 
 
 
