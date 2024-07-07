@@ -33,8 +33,12 @@ time_prompt = PromptTemplate(
     template="I only have one week. Can you create a plan to help me hit this goal: {learning_plan}."
 )
 
+# Chain the prompts together using LCEL
+
 # Invoke the learning_prompt with an activity
-print(learning_prompt.____({"activity": "____"}))
+print(
+    learning_prompt.invoke({"activity": "create a machine learning program"})
+)
 
 
 
