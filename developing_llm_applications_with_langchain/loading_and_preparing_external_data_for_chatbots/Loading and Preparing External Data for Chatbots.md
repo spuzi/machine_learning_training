@@ -6,4 +6,4 @@ In this chapter, you'll learn to create application that use **Retrieval Augment
 
 The **RAG workflow** contains a few different processes, including **splitting data**, **creating and storing the embeddings** using a vector database, and **retrieving the most relevant information** for use in the application.
 
-[Integrating Document Loaders](Integrating%20Document%20Loaders.md)
+[Integrating Document Loaders](developing_llm_applications_with_langchain/loading_and_preparing_external_data_for_chatbots/Integrating%20Document%20Loaders.md)

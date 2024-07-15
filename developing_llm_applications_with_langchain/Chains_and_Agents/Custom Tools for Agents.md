@@ -144,6 +144,8 @@ print(messages)
 }
 ```
 
+[Example of a custom tool, financial calculator](./../12_custom_tool.py)
+[Example of a custom tool, financial calculator](./../13_defining_function_for_tool_use.py)
 
 
 
