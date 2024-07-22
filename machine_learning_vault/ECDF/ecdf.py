@@ -23,7 +23,6 @@ def calculate_ecdf(data: list[int]):
         message = f"Values less or equal than [{each_value}] ({cumulative_proportion}) => {values_less_or_equal}"
         print(message)
         
-
     return distinct_values, ecdf_values 
 
 def print_ecdf(values, ecdf_values):
