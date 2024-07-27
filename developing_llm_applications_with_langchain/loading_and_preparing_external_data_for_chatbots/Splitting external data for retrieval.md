@@ -78,6 +78,7 @@ print(docs)
 ```
 
 [Example of Character Text Splitter](./../07_character_text_splitter.py)
+[Example 2 of Character Text Splitter](./../07_character_text_splitter_ex_2.py)
 
 Comparing to the **RecursiveCharacterSpliter**, let's split using the same chunk size and overlap values.
 
@@ -108,6 +109,7 @@ print(docs)
 ```
 
 [Example of Recursive Character Text Splitter](./../07_recursive_character_splitter.py.py)
+[Example of Recursive Character Text Splitter](./../07_recursive_text_splitter_ex2.py)
 
 
 Notice how the length of each chunk varies. Whether this is good or bad for your data depends on the use case and document. The chunks for this particular case are too small to contain appropriate context, but the implementation may work better on a larger document.
@@ -136,3 +138,5 @@ print(docs[0])
 
 # Document(page_content='To search this site, enter a search term [...])
 ```
+
+[Example of Reading HTML and splitting with Recursive Character Text Splitter](./../07_HTML_document_splitter.py)

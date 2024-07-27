@@ -1,4 +1,4 @@
-#ecdf
+#ecdf #data_distribution 
 
 # ECDF (Empirical Cumulative Distribution Function)
 
@@ -11,7 +11,6 @@ dataset.
 ECDFs are usefull because they provide a complete view of the data distribution.
 Unlike histograms, which depends on bin sizes and can be less precise, ECDFs are
 non-parametric and don't rely on assumptions about the data distribution.
-
 
 ## How to construct an ECDF?
 

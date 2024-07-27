@@ -1,4 +1,4 @@
-#ks #kolmogorov-smirnov #binary_classification
+#ks #kolmogorov-smirnov #binary_classification #data_distribution
 # Kolmogorov-Smirnov (KS)
 
 ## What is the KS test?
