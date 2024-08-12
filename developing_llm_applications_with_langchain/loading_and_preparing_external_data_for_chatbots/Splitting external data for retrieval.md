@@ -7,11 +7,13 @@ Document splitting is when we split the loaded document into smaller parts, whic
 Chunking is particularly useful for breaking up long documents so that they fit within an LLM's context window.
 
 Let's examine the introduction from a famous paper called "Attention is All you Need" which is saved as a PDF.
+
 ```
 Recurrent neural networks, long short-term memory [12] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [29, 2, 5]. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures [31, 21, 13].
 ```
 
 One naive splitting method would be to separate the document into lines as they appear in the paper. This would be simple to implement but could be problematic. 
+
 Key context required for understanding one line is often found in a different line, and these lines would be processed separately, so we need another strategy. 
 
 There isn't one strategy that works for all situations when it comes to splitting documents.
@@ -19,7 +21,7 @@ There isn't one strategy that works for all situations when it comes to splittin
 It is often the case of experimenting with multiple methods, and seeing which one strikes the right balance between retaining sufficient context and managing chunk size.
 
 We will compare **two document splitting** methods from LangChain:
-- **CharacterTextSplitting** splits text based on a specific separator, looking at individual characters
+- **CharacterTextSplitting** splits text based on a specific separator, looking at individual characters.
 - **RecursiveCharacterTextSplitter** attempts to split by several characters recursively until the chunks fall within the specified chunk size.
 
 There are many other methods that use natural language processing to infer meaning and split appropriately. Optimizing this is an active area of research.

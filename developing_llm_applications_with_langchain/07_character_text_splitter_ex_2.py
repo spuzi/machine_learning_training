@@ -25,9 +25,7 @@ chunk_overlap = 10
 
 # Create an instance of the splitter class
 splitter = CharacterTextSplitter(
-        separator="\n",
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap
+    separator="\n", chunk_size=chunk_size, chunk_overlap=chunk_overlap
 )
 
 # Split the string into chunks and print the chunks
@@ -37,3 +35,16 @@ print(docs)
 print([len(doc) for doc in docs])
 
 
+print(
+    f"""
+Original Text
+-------------
+{quote}
+
+Split Text (Using CharacterTextSplitter)
+----------------------------------------"""
+)
+for index, doc in enumerate(docs):
+    print(f"Chunk {index + 1}")
+    print(f"    Size: {len(doc)}")
+    print(f"    Content: {doc}\n")
