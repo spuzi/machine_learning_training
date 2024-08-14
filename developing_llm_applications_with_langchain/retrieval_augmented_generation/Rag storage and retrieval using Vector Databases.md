@@ -19,7 +19,7 @@ There are many vector databases available in LangChain.
 ![](Pasted%20image%2020240727070059.png)
 
 
-When making the decision on which solution to choose, consider whether an open source solution is required, which may be the case if high customizability is required.
+When making the decision on which solution to use, consider whether an open source solution is required, which may be the case if high customizability is required.
 
 Also, consider whether the data can be stored on off-premises on third party services (not all cases will permit this).
 
@@ -57,9 +57,7 @@ class.
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 
-embedding_function = OpenAIEmbeddings(
-						openai_api_key=openai_api_key
-						)
+embedding_function = OpenAIEmbeddings(openai_api_key=openai_api_key)
 
 # Create a Chroma database from a set of documents
 vectorstore = Chroma.from_documents(
@@ -71,11 +69,9 @@ vectorstore = Chroma.from_documents(
 
 # Finally, to integrate the database with other LangChain components
 # we need to convert it into a retriever 
-
 retriever = vectorstore.as_retriever(
 				# We want to perform a simlitary search
 				seach_type="similarity", 
-
 				# Return the top 2 most similar documents, 
 				# for each user query
 				search_kwargs={"k": 2}						 
@@ -83,7 +79,8 @@ retriever = vectorstore.as_retriever(
 
 # So the model knows what to do, we'll construct a prompt template,
 # which starts with the instruction: to review and fix the copy
-# provided, insert the retrieved guidelines.
+# provided, insert the retrieved guidelines and copy to review 
+# and an indication that the model should follow with a fixed version
 message = """
 Review and fix the following TechStack marketing copy with the following guidelines in consideration:
 
@@ -96,7 +93,29 @@ Copy:
 Fixed Copy:
 """
 
-prompt_template = Chat
+prompt_template = ChatPromptTemplate.from_messages([("human", message)])
+
+# To chain together our retriever, prompt_template, and LLM, we use 
+# LCEL in a similar way as before, using pipes to connect the three 
+# components. 
+# The only difference is that we create a dictionary that assigns the
+# retrieved to guidelines, and assigns the copy to review to the 
+# RunnablePassthrough function, which acts as a placeholder to insert
+# our input when we invoke the chain
+from langchain_core.runnables import RunnablePassThrough
+
+rag_chain = ({"guidelines": retriever, "copy": RunnablePassThrough()}
+			  | prompt_template
+			  | llm)
+
+# Printing the result, we can see the model fixed the two guidelines 
+# breaches
+response = rag_chain.invoke("Here at techstack, our users are the best in the world!")
+
+print(response.content)
+# Output:
+# Here at TechStack, our techies are the best in the world!
+
 ```
 
 

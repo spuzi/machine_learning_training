@@ -92,7 +92,7 @@ quote = "One machine can do the work of fifty ordinary humans. No machine can do
 len(quote) # 103
 
 chunk_size = 24
-chunk_size = 3
+chunk_overlap = 3
 
 rc_splitter = RecursiveCharacterTextSplitter(
 				chunk_size=chunk_size,
@@ -110,7 +110,7 @@ print(docs)
 # ]
 ```
 
-[Example of Recursive Character Text Splitter](./../07_recursive_character_splitter.py.py)
+[Example of Recursive Character Text Splitter](./../07_recursive_character_splitter.py)
 [Example of Recursive Character Text Splitter](./../07_recursive_text_splitter_ex2.py)
 
 

@@ -5,7 +5,9 @@ In this chapter we'll discuss retrieval augmented generation or RAG.
 **Pre-trained language models doesn't have access to external data sources**, **their understanding comes** purely **from their training data**. This means that **if we require our model to have knowledge that goes beyond its training data**, which could be company data or knowledge of more recent world events, **we need a way of integrating that data**.
 
 In RAG, **an user query is embedded and used to retrieve the most relevant documents from the database**, then **these documents are added to the model's prompt so that the model has extra context to inform its response**.
+
 ![](Pasted%20image%2020240715054605.png)
+
 
 There are **3 primary steps to RAG development in LangChain**:
 1. **Loading the documents into LangChain with document loaders**.
