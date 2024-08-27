@@ -46,7 +46,6 @@ We'll be storing documents containing guidelines for a company's marketing copy.
 ]
 ```
 
-
 Now that we've parsed the data, it's time to embed it.
 
 We'll use an embedding model from OpenAI by instantiating the OpenAIEmbeddings
@@ -102,9 +101,9 @@ prompt_template = ChatPromptTemplate.from_messages([("human", message)])
 # retrieved to guidelines, and assigns the copy to review to the 
 # RunnablePassthrough function, which acts as a placeholder to insert
 # our input when we invoke the chain
-from langchain_core.runnables import RunnablePassThrough
+from langchain_core.runnables import RunnablePassthrough
 
-rag_chain = ({"guidelines": retriever, "copy": RunnablePassThrough()}
+rag_chain = ({"guidelines": retriever, "copy": RunnablePassthrough()}
 			  | prompt_template
 			  | llm)
 

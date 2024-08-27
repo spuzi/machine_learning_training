@@ -5,16 +5,12 @@ from langchain_core.prompts import ChatPromptTemplate
 
 openai_apikey = os.environ["openai_apikey"]
 
-llm = ChatOpenAI(
-    temperature=0,
-    openai_api_key=openai_apikey,
-    verbose=True
-)
+llm = ChatOpenAI(temperature=0, openai_api_key=openai_apikey, verbose=True)
 
-prompt_template= ChatPromptTemplate.from_messages(
+prompt_template = ChatPromptTemplate.from_messages(
     [
-        ("system", "You are a master zombie slayer in an apocalyptic world"), 
-        ("human", "Respond to the question: {question}")
+        ("system", "You are a master zombie slayer in an apocalyptic world"),
+        ("human", "Respond to the question: {question}"),
     ]
 )
 
