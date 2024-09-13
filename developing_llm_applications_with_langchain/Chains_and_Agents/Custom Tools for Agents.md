@@ -1,10 +1,8 @@
 #LLM #agents #tools
 
-Now that we've created our first agent, let's take a closer look at tools so we can design our own.
+Now that we've created our first agent, let's take a closer look at **tools** so **we can design our own**.
 
-Tools in LangChain must be formatted in a specific way to be compatible with agents. They must have a name, accessible via the .name attribute. 
-
-
+**Tools in LangChain must be formatted in a specific way to be compatible with agents**. They **must have a name**, accessible via the **.name attribute**. 
 
 ```python
 from langchain.agents import load_tools
@@ -27,7 +25,7 @@ print(tools[0].return_direct)
 
 Understanding this required format will help us to understand how to create our own tools. 
 
-Let's say we want to create a function to generate a financial report for a company:
+**Let's say we want to create a function to generate a financial report for a company**
 
 ```python
 def financial_report(
@@ -57,9 +55,9 @@ print(financial_report(
 # Net Income: $50
 ```
 
-Let's convert this agent into a tool our agent can call. To do this, we import the @tool decorator and add it before the function definition.
+**Let's convert this  a tool our agent can call**. To do this, we **import the @tool decorator and add it before the function **definition.
 
-The decorator *@tool* modifies the function so it's in the correct format to be used by a tool. Like with the built-in tool we were looking at, we can now examine the various attributes of our tool. This include its name, which is the function name by default, its description, which is the function's docstring, and *return_direct*, which is set to False by default.
+Like with the built-in tool we were looking at, we can now examine the various attributes of our tool. This include **its name, which is the function name by default**, **its description, which is the function's docstring**, and ***return_direct*, which is set to False by default.**
 
 ```python
 @tool
@@ -105,19 +103,15 @@ print(financial_report.args)
 # }
 ```
 
-
-Let's put our tool into action. We'll again use a ReAct agent, combining the chat LLM with a list of tools to use, containing our new custom tool.
-
+Let's put our tool into action. **We'll use a ReAct agent, combining the chat LLM with a list of tools to use, containing our new custom tool.**
 
 ```python
-
 from langgraph.prebuilt import create_react_agent
 
 llm = ChatOpenAI(
 		api_key=openai_api_key,
 		temperature=0
 )
-
 agent = create_react_agent(
 			llm,
 			[financial_report]

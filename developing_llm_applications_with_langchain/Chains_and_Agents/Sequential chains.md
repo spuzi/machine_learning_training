@@ -1,13 +1,12 @@
 #LLM #sequential_chains
 
-Some problems can only be solved sequentially. Consider a chatbot used to create a travel itinerary.
+**Some problems can only be solved sequentially**. Consider a chatbot used to **create a travel itinerary**.
 
-We need to tell the chatbot the travel destination, receive suggestions on what to see in our trip and tell the model what activities to select to compile the itinerary. This is a sequential problem as require more than one user input, one to specify the destination and another to select the activities.
+**We need to tell the chatbot** the travel **destination**, **receive suggestions** on what to see in our trip **and tell the model what activities to select to compile the itinerary**. **This is a sequential problem** a**s require more than one user input, one to specify the destination and another to select the activities**.
 
-In sequential chain the output from one chain becomes the input to another. We'll create two prompt template: one to generate suggestions for activities from the input destination, and another to create an itinerary for one day of activities for the models top 3 suggestions.
+In sequential chain **the output from one chain becomes the input to another**. **We'll create two prompt template**: **one to generate suggestions** for activities from the input destination, **and another to create an itinerary** for one day of activities for the models top 3 suggestions.
 
 ```python
-
 destination_prompt = PromtTemplate(
 	input_variables=["destination"],
 	template="I am planning a trip to {destination}. Can you suggest some activities to do there?"

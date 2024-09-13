@@ -1,17 +1,20 @@
-#LLM #agents
+#LLM #agents #ReAct #LangGraph
 
-Now that we're confident with LLMs, it's time to move onto a area of AI application development: agents.
+Now that we're confident with LLMs, it's time to move onto agents.
 
-In LangChain, agents use language models to determine actions. Agents often use tools, which are functions called by the agent to interact with the system. 
-These tools can be high-level utilities to transform inputs, or they can be task-specific. Agents can even use chains and other agents as tools. 
+In LangChain, **agents use language models to determine actions**. **Agents** often **use tool**s, **which are functions called by the agent** to interact with the system. 
 
-We'll discuss a type of agent called ReAct agents.
+**These tools can be high-level utilities to transform inputs, or** they can be **task-specific**. 
 
-## ReAct agents
+**Agents can even use chains and other agents** as tools. 
 
-ReAct stands for **Reasoning and Acting**, and this is exactly how the agent operates. It prompts the model using a repeated **loop of thinking, acting, and observing**.
+**We'll discuss** a type of agent called **ReAct agents**.
 
-If we were to ask a ReAct agent that had access to a weather tool, "What is the weather like in Kingston, Jamaica?", it would **start by thinking about the task and which tool to call,** call that tool using information, **and observe the result from the tool call**.
+## ReAct Agents
+
+ReAct stands for **Reasoning and Acting**, and this is exactly how the agent operates. It prompts the model using a **repeated loop of thinking, acting, and observing**.
+
+**If we were to ask a ReAct agent that had access to a weather tool, "What is the weather like in Kingston**, Jamaica?", it would **start by thinking about the task and which tool to call,** **call that tool using information**, **and observe the result from the tool call**.
 
 ```
 Though: I should call Weather() to find the weather in Kingston, Jamaica.
@@ -21,7 +24,7 @@ Act: Weather("Kingston, Jamaica")
 Observe: The weather is mostly sunny with temperatures of 82ºF
 ```
 
-To implement agents, we'll be using **LangGraph**, which is a branch of the LangChain ecosystem specifically for designing agentic systems, or systems including agents. 
+**To implement agents we'll be using LangGraph**, which is a branch of the LangChain ecosystem **specifically for designing agentic systems**, or systems including agents. 
 Like LangChain core library, it is built to provide an unified, tool-agnostic syntax.
 
 We'll be using the following version for this course: 
