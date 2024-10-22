@@ -11,4 +11,5 @@ Index:
 - [[Custom Tools for Agents]]
 - [[developing_llm_applications_with_langchain/retrieval_augmented_generation/Integrating Document Loaders]]
 - [[developing_llm_applications_with_langchain/loading_and_preparing_external_data_for_chatbots/Splitting external data for retrieval]]
+- [[Rag storage and retrieval using Vector Databases]]
 - 

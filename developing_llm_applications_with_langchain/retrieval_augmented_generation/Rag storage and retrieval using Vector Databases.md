@@ -18,14 +18,13 @@ There are many vector databases available in LangChain.
 
 ![](Pasted%20image%2020240727070059.png)
 
-
-When making the decision on which solution to use, consider whether an open source solution is required, which may be the case if high customizability is required.
+When **making the decision on which solution to use**, **consider whether an open source solution is required**, which may be the case **if high customizability is required**.
 
 Also, consider whether the data can be stored on off-premises on third party services (not all cases will permit this).
 
-The amount of storage and latency of retrieving results is also a key consideration.
+**The amount of storage and latency of retrieving results is also a key consideration.**
 
-Sometimes a lightweight in-memory database will be sufficient, but others will require something more powerful.
+**Sometimes a lightweight in-memory database will be sufficient**, but others will require something more powerful.
 
 Fort this part, we'll be using "ChromaDB" because it is a lightweight and quick to set up.
 
@@ -46,13 +45,11 @@ We'll be storing documents containing guidelines for a company's marketing copy.
 ]
 ```
 
-Now that we've parsed the data, it's time to embed it.
+**Now that we've parsed the data, it's time to embed it.**
 
 We'll use an embedding model from OpenAI by instantiating the OpenAIEmbeddings
 class.
-
 ```python
-
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 

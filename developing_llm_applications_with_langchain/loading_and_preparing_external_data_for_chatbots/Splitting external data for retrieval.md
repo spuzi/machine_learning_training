@@ -1,10 +1,10 @@
 #LLM #LangChain 
 
-Now that we've loaded documents from different sources, let's learn how to properly parse the information.
+**Now that we've loaded documents from different sources**, let's learn how to **properly parse the information**.
 
-Document splitting is when we split the loaded document into smaller parts, which are also called called "chunks".
+**Document splitting is when we split the loaded document into smaller parts**, which are also called **called "chunks"**.
 
-Chunking is particularly useful for breaking up long documents so that they fit within an LLM's context window.
+**Chunking** is particularly **useful for breaking up long documents so that they fit within an LLM's context window**.
 
 Let's examine the introduction from a famous paper called "Attention is All you Need" which is saved as a PDF.
 
@@ -12,21 +12,21 @@ Let's examine the introduction from a famous paper called "Attention is All you 
 Recurrent neural networks, long short-term memory [12] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [29, 2, 5]. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures [31, 21, 13].
 ```
 
-One naive splitting method would be to separate the document into lines as they appear in the paper. This would be simple to implement but could be problematic. 
+One **naive splitting method** would be to **separate the document into lines** as they appear in the paper. This **would** be **simple to implement but** could be **problematic**. 
 
-Key context required for understanding one line is often found in a different line, and these lines would be processed separately, so we need another strategy. 
+**Key context required for understanding one line is often found in a different line**, and these lines would be processed separately, so **we need another strategy**. 
 
-There isn't one strategy that works for all situations when it comes to splitting documents.
+**There isn't one strategy that works for all situations when it comes to splitting documents**.
 
-It is often the case of experimenting with multiple methods, and seeing which one strikes the right balance between retaining sufficient context and managing chunk size.
+It is often the case of **experimenting with multiple methods, and seeing which one strikes the right balance between retaining sufficient context and managing chunk size**.
 
 We will compare **two document splitting** methods from LangChain:
-- **CharacterTextSplitting** splits text based on a specific separator, looking at individual characters.
-- **RecursiveCharacterTextSplitter** attempts to split by several characters recursively until the chunks fall within the specified chunk size.
+- **CharacterTextSplitting** **splits text based on a specific separator**, looking at individual characters.
+- **RecursiveCharacterTextSplitter** **attempts to split by several characters recursively until the chunks fall within the specified chunk size**.
 
-There are many other methods that use natural language processing to infer meaning and split appropriately. Optimizing this is an active area of research.
+**There are many other methods that use natural language processing to infer meaning and split appropriately**. Optimizing this is an active area of research.
 
-When we split the document into chunks, a chunk overlap is needed to ensure any context is properly conveyed across chunks.
+**When we split the document into chunks, a chunk overlap is needed to ensure any context is properly conveyed across chunks**.
 
 To understand the concept fully, let's go back to the Attention is All You Need introduction.
 
@@ -43,9 +43,9 @@ established as state of the art approaches in sequence modeling and transduction
 such as language modeling and machine translation. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures
 ```
 
-Having this extra overlap in each chunk helps information retain context.
+Having t**his extra overlap in each chunk helps information retain context**.
 
-If a model shows signs of losing context and misunderstanding information when answering from external sources, we may need need to increase the chunk overlap. 
+**If a model shows signs of losing context and misunderstanding information when answering from external sources, we may need need to increase the chunk overlap.** 
 
 As an example, let's split this modernized quote by Elbert Hubbard into chunks, which contains 103 characters.
 
@@ -56,7 +56,7 @@ len(quote) # 103
 
 We'll compare how the two methods perform on this quote with a chunk size of 24 and small chunk overlap of three.
 
-Let's start with **CharacterTextSplitter**. This method splits based on the separator first, then evaluates the chunk size and chunk the overlap.
+Let's start with **CharacterTextSplitter**. **This method splits based on the separator first**, **then evaluates the chunk size and chunk the overlap.**
 
 ```python
 from langchain.text_splitter import CharacterTextSplitter
@@ -114,9 +114,9 @@ print(docs)
 [Example of Recursive Character Text Splitter](./../07_recursive_text_splitter_ex2.py)
 
 
-Notice how the length of each chunk varies. Whether this is good or bad for your data depends on the use case and document. The chunks for this particular case are too small to contain appropriate context, but the implementation may work better on a larger document.
+**Notice how the length of each chunk varies.** **Whether this is good or bad for your data depends on the use case and document**. The chunks for this particular case are too small to contain appropriate context, but the implementation may work better on a larger document.
 
-We can also use the splitter syntax with other formats, such as PDFs and HTML. As we learned earlier in the chapter, many document formats have their own document loader classes in LangChain.
+We **can also use the splitter syntax with other formats, such as PDFs and HTML.** As we learned earlier in the chapter, many document formats have their own document loader classes in LangChain.
 
 ```python
 
