@@ -21,23 +21,21 @@ from langchain_huggingface import HuggingFaceEndpoint
 prompt_template = """
 You are an artificial intelligence assistant, answer the question. {question}
 """
-prompt = PromptTemplate(
-    template=prompt_template,
-    input_variables=["question"]
-)
+prompt = PromptTemplate(template=prompt_template, input_variables=["question"])
 
 # Use a Hugging Face model using the API.
 hugging_face_api_key = os.environ["huggingface_apikey"]
 llm = HuggingFaceEndpoint(
-    repo_id="tiiuae/falcon-7b-instruct", 
-    huggingfacehub_api_token=hugging_face_api_key 
+    repo_id="tiiuae/falcon-7b-instruct",
+    huggingfacehub_api_token=hugging_face_api_key,
 )
 
 # Chain the prompt with the LLM
 chain = prompt | llm
 
 # Ask something
-output = chain.invoke("How does LangChain make LLM application development easier?")
+output = chain.invoke(
+    "How does LangChain make LLM application development easier?"
+)
 
 print(output)
-
