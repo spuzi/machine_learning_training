@@ -10,3 +10,5 @@ todo
 .vscode/
 .obsidian/
 *.pyc
+*checkpoint*
+*~*
